@@ -22,3 +22,25 @@ The workflow covers the following stages:
 8. Evaluation on the held-out test set and SHAP-based interpretation.
 
 ## Workflow
+The complete KNIME pipeline brings together preprocessing, class balancing, feature selection, training, evaluation and explainability.
+
+The importable workflow is available in **knime/alzheimer_classification_workflow.knwf**.
+
+## Model comparison
+**AdaBoost** obtained the highest average cross-validation sensitivity and was selected as the final classifier. Its held-out test accuracy was **92.6%**, with a **ROC AUC of 0.920**.
+
+**Bagging** achieved the highest test accuracy and ROC AUC. This highlights how the preferred model can change depending on the evaluation metric used.
+
+| Classifier | Mean CV sensitivity | Test accuracy | Test ROC AUC |
+|---|---:|---:|---:|
+| **AdaBoost** | **0.932** | 0.926 | 0.920 |
+| Naive Bayes | 0.924 | 0.932 | 0.922 |
+| Bayesian Network | 0.924 | 0.932 | 0.922 |
+| Bagging | 0.921 | **0.936** | **0.925** |
+| Tree-Augmented Naive Bayes | 0.920 | 0.930 | 0.920 |
+| Decision Tree | 0.913 | 0.932 | 0.922 |
+| Gradient Boosting | 0.911 | 0.921 | 0.915 |
+| Random Forest | 0.884 | 0.932 | 0.920 |
+| Multilayer Perceptron | 0.818 | 0.833 | 0.819 |
+| Logistic Regression | 0.787 | 0.825 | 0.819 |
+| Support Vector Machine | 0.679 | 0.732 | 0.720 |
